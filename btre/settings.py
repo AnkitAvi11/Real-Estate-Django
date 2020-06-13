@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listing.apps.ListingConfig',
     'realtor.apps.RealtorConfig',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

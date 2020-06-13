@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from datetime import datetime, timedelta
 
 #   realtor class model
 class Realtor(models.Model) : 
@@ -11,6 +11,7 @@ class Realtor(models.Model) :
     hire_date = models.DateTimeField(default = datetime.now(), blank=True)
     photo = models.ImageField(upload_to = 'photos/%Y/%m/%d', default = 'default.png')
 
+    #   overriding the save method
     def save(self, *args, **kwargs) : 
         try : 
             prev = Realtor.objects.get(id=self.id)
@@ -21,6 +22,7 @@ class Realtor(models.Model) :
         
         super().save(*args, **kwargs)
 
+    #   overriding the delete method
     def delete(self, *args, **kwargs) : 
         self.photo.delete()
         super().delete(*args, **kwargs)

@@ -1,0 +1,29 @@
+{%extends 'admin/base.html'%}
+{%load static%}
+{%block title%}BTRE | Admin{%endblock%}
+{%block branding%}
+    <a href="/admin"><h1 id="head" style="color: white;font-weight:bolder;padding:15px;">BT Real Estate (Admin)</h1></a>
+{%endblock%}
+
+{%block extrastyle%}
+    <style>
+        div#header{
+            background: darkcyan;
+        }
+        .module caption {
+            background: darkcyan;
+        }
+        div.breadcrumbs{
+            background: lightblue;
+        }
+        div.breadcrumbs {
+            color: black;
+        }
+        div.breadcrumbs a {
+            color: black;
+        }
+        div.breadcrumbs a:hover {
+            color: orange;
+        }
+    </style>
+{%endblock%}

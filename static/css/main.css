@@ -71,3 +71,19 @@ div.mvp{
     border-radius: 5px;
     padding: 15px;
 }
+/*
+lISTINGS PAGE ALL THE CARDS DESIGN
+*/
+div.card {
+    min-height: 300px;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    color: grey;
+    margin-bottom: 15px;
+}
+div.card h3 {
+    color: black;
+}
+.center{
+    text-align: center;
+}

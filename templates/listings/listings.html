@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load humanize%}
+{%block title%}BTRE  | Listings {%endblock%}
+
+{%block content%}
+    <div class="container">
+        <h2 style="text-align: center;color:grey;">Listings</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            {%if listings%}
+            {%for listing in listings%}
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="photo" style="height: 200px;background:url('{{listing.photo_main.url}}');background-size:cover;background-position:center">
+
+                        </div>
+                        <div>
+                            <h3>{{listing.title}}</h3>
+                            <p>{{listing.address}}</p>
+                            <p style="text-transform:capitalize">{{listing.pub_date | naturalday}}</p>
+                            <p>Realtor : <a href="/realtors/{{listing.realtor.id}}">{{listing.realtor}}</a></p>
+                        </div>
+                        <p class="price"></p>
+                        <p><a href="{%url 'listing' listing.id%}" class="btn btn-info" style="width: 100%;">View Listing</a></p>
+                    </div>
+                </div>
+            {%endfor%}
+            {%else%}
+            <div>
+                <h2 style="text-align: center;">No Listings found</h2>
+            </div>
+            {%endif%}
+        </div>
+    </div>
+
+    {%include "includes/_footer.html"%}
+{%endblock%}
