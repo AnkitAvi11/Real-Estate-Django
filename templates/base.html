@@ -1,0 +1,40 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{%endblock%}</title>
+    <!--
+        Bootstrap settings and CDN
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--
+        Custom CSS and JS (if any)
+    -->
+    <link rel="stylesheet" href="{%static 'css/main.css'%}">
+
+    <!--
+        Jinja settings for individual styles
+    -->
+    {%block inlinestyles%}{%endblock%}
+    {%block extrastyles%}{%endblock%}
+    {%block headjs%}{%endblock%}
+</head>
+<body>
+    <!--    Navigation panel -->
+    {%include 'includes/_nav.html'%}
+    
+    <!--
+        Main content of the page
+    -->
+    {%block content%}
+
+    {%endblock%}
+    
+    {%block bodyscripts%}{%endblock%}
+</body>
+</html>
