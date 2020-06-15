@@ -19,10 +19,10 @@
                         <div>
                             <h3>{{listing.title}}</h3>
                             <p>{{listing.address}}</p>
-                            <p style="text-transform:capitalize">{{listing.pub_date | naturalday}}</p>
+                            <p style="text-transform:capitalize">{{listing.pub_date | naturaltime}}</p>
                             <p>Realtor : <a href="/realtors/{{listing.realtor.id}}">{{listing.realtor}}</a></p>
                         </div>
-                        <p class="price"></p>
+                        <p class="price" style="font-weight: bolder;color:black;">Rs. {{listing.price | intcomma}}</p>
                         <p><a href="{%url 'listing' listing.id%}" class="btn btn-info" style="width: 100%;">View Listing</a></p>
                     </div>
                 </div>
@@ -31,6 +31,14 @@
             <div>
                 <h2 style="text-align: center;">No Listings found</h2>
             </div>
+            {%endif%}
+        </div>
+        <div class="container">
+            {% if listings.has_previous%}
+            <p><a href="?page={{listings.previous_page_number}}">Previous Page</a></p>
+            {%endif%}
+            {% if listings.has_other_pages%}
+            <p><a href="?page={{listings.next_page_number}}">Next Page</a></p>
             {%endif%}
         </div>
     </div>
