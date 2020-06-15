@@ -37,9 +37,10 @@
             {% if listings.has_previous%}
             <p><a href="?page={{listings.previous_page_number}}">Previous Page</a></p>
             {%endif%}
-            {% if listings.has_other_pages%}
+            {% if listings.has_next%}
             <p><a href="?page={{listings.next_page_number}}">Next Page</a></p>
             {%endif%}
+            {{listings.number}}
         </div>
     </div>
 
