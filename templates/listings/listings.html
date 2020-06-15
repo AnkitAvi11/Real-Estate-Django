@@ -34,13 +34,20 @@
             {%endif%}
         </div>
         <div class="container">
-            {% if listings.has_previous%}
-            <p><a href="?page={{listings.previous_page_number}}">Previous Page</a></p>
-            {%endif%}
-            {% if listings.has_next%}
-            <p><a href="?page={{listings.next_page_number}}">Next Page</a></p>
-            {%endif%}
-            {{listings.number}}
+            <ul class="pager">
+                {%if listings.has_previous%}
+                <li><a href="?page={{listings.previous_page_number}}">Previous</a></li>
+                {%else%}
+                <li class="disabled"><a href="#">Previous</a></li>
+                {%endif%}
+                <li style="margin:0px 20px;">Current Page : {{listings.number}}</li>
+                {%if listings.has_next%}
+                <li><a href="?page={{listings.next_page_number}}">Next</a></li>
+                {%else%}
+                <li class="disabled"><a href="#">Next</a></li>
+                {%endif%}
+            
+            </ul>
         </div>
     </div>
 
