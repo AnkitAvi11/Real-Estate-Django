@@ -37,7 +37,9 @@
                     <div style="height: 200px;background:url('{{listing.photo_main.url}}');background-size:cover;background-position:center"></div>
                     <h3>{{listing.title}}</h3>
                     <p>{{listing.address}}</p>
-                    <p><b>Rs. {{listing.price | intcomma}}</b></p>
+                    <p><b>Email</b> : {{listing.realtor.email}}</p>
+                    <p><b>Realtor</b> : <a href="#">{{listing.realtor}}</a></p>
+                    <p><b>PRICE : RS. {{listing.price | intcomma}}</b></p>
                     <p><a href="{%url 'listing' listing.id%}">View Property</a></p>
                 </div>
             </div>
