@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {%load static%}
+{%load humanize%}
 {%block title%}BTRE | Home{%endblock%}
 {%block content%}
     <div class="container-fluid jumbotron">
@@ -30,36 +31,17 @@
     <div class="container">
         <h2 style="text-align: center;margin-top:50px;margin-bottom:30px">Latest Properties</h2>
         <div class="row">
+            {%for listing in listings%}
             <div class="col-sm-4">
                 <div class="property-card">
-                    <img src="{%static 'images/cover.svg'%}" alt="">
-                    <h3>Title of the property</h3>
-                    <p>Address</p>
-                    <p><b>Rs. 3400</b></p>
-                    <p><a href="#">View Property</a></p>
-                    
+                    <div style="height: 200px;background:url('{{listing.photo_main.url}}');background-size:cover;background-position:center"></div>
+                    <h3>{{listing.title}}</h3>
+                    <p>{{listing.address}}</p>
+                    <p><b>Rs. {{listing.price | intcomma}}</b></p>
+                    <p><a href="{%url 'listing' listing.id%}">View Property</a></p>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="property-card">
-                    <img src="{%static 'images/cover.svg'%}" alt="">
-                    <h3>Title of the property</h3>
-                    <p>Address</p>
-                    <p><b>Rs. 3400</b></p>
-                    <p><a href="#">View Property</a></p>
-                    
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="property-card">
-                    <img src="{%static 'images/cover.svg'%}" alt="">
-                    <h3>Title of the property</h3>
-                    <p>Address</p>
-                    <p><b>Rs. 3400</b></p>
-                    <p><a href="#">View Property</a></p>
-                    
-                </div>
-            </div>
+            {%endfor%}
         </div>
     </div>
 
