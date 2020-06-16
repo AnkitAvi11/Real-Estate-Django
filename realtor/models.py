@@ -10,6 +10,7 @@ class Realtor(models.Model) :
     is_mvp = models.BooleanField(default = False)
     hire_date = models.DateTimeField(default = datetime.now(), blank=True)
     photo = models.ImageField(upload_to = 'photos/%Y/%m/%d', default = 'default.png')
+    
 
     #   overriding the save method
     def save(self, *args, **kwargs) : 

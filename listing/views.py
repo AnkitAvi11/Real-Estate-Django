@@ -21,5 +21,10 @@ def indexView(request) :
     return render(request, 'listings/listings.html', context)    
 
 def listing(request, listing_id) : 
-    return HttpResponse(listing_id)
+    listing = Listing.objects.get(id=listing_id)
+    context = {
+        "title" : listing,
+        "listing" : listing
+    }
+    return render(request, 'listings/listing.html', context)
 
