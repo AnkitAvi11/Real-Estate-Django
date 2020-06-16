@@ -4,6 +4,7 @@ from datetime import datetime
 from django.core.paginator import Paginator
 
 from listing.models import Listing 
+from realtor.models import Realtor
 
 def indexView(request) : 
     listings = Listing.objects.all().order_by('-pub_date')
@@ -28,3 +29,8 @@ def listing(request, listing_id) :
     }
     return render(request, 'listings/listing.html', context)
 
+
+def realtorListing(request, realtor_id) : 
+    realtor = Realtor.objects.get(id=realtor_id)
+    return HttpResponse(realtor.listing_set.all())
+    
